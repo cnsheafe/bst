@@ -62,4 +62,28 @@ describe('BST', () => {
       expect(root).toEqual(rootData)
     })
   })
+
+  describe('#depth', () => {
+    let tree = new BST(5, 1)
+
+    beforeEach(() => {
+      tree = new BST(5, 1)
+    })
+
+    it('should get the depth of a tree', () => {
+      tree.insert(6, 1)
+      tree.insert(10, 2)
+      tree.insert(15, 3)
+      tree.insert(20, 4)
+      tree.insert(1, 5)
+      tree.insert(3, 7)
+      tree.insert(-2, 10)
+      tree.insert(16, 4)
+      tree.insert(17, 5)
+      tree.insert(25, 11)
+
+      const depth = tree.depth()
+      expect(depth).toBe(7)
+    })
+  })
 })

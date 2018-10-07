@@ -42,4 +42,27 @@ module.exports = class BST {
 
     return null
   }
+
+  getDepth() {
+    return this.depth()
+  }
+
+  depth(counter) {
+    // Checks head
+    if (!this.key) return 0
+
+    let leftCounter = 1
+    let rightCounter = 1
+
+
+    if (counter) {
+      leftCounter = counter
+      rightCounter = counter
+    }
+
+    if (this.left !== null) leftCounter = this.left.depth(leftCounter + 1)
+    if (this.right !== null) rightCounter = this.right.depth(rightCounter + 1)
+
+    return leftCounter > rightCounter ? leftCounter : rightCounter
+  }
 }
